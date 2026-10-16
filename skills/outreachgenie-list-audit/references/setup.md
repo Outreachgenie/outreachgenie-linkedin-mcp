@@ -16,6 +16,10 @@ The helper itself makes no HTTP requests. During connected collection, the MCP s
 
 The package uses the Agent Skills directory format (`SKILL.md`, `scripts/`, `references/`) with optional Codex UI metadata in `agents/openai.yaml`. Local synthetic execution is testable without an MCP host. Format compatibility is not a claim that every host executes the skill or authenticates successfully.
 
-The offline helper and fictional fixture have been validated locally. A real account connection, hosted OAuth, Codex native invocation, Claude Code invocation and ChatGPT/Claude web execution of this skill have **not** been validated. Those are separate integration checks required before a named host can be claimed as supported. They do not prevent offline use of the helper. A web chat host without a local interpreter cannot use the helper as written; it should report the missing capability, not imitate the checks and claim the tested result.
+The offline helper and fictional fixture have been validated locally.
+
+On October 16, 2026, Codex CLI 0.160.0 on Linux with Python 3.11.8 completed an explicit `$outreachgenie-list-audit` invocation in an isolated workspace using the included fictional fixture. The host read the installed instructions, ran the local helper with an absolute Python interpreter path and explained the generated report. No OutreachGenie account or MCP connection was used.
+
+This verifies one explicit fixture workflow only. Real account connections, hosted OAuth, real-workspace capture, automatic skill selection, Claude Code and ChatGPT/Claude web execution remain unverified. A web chat host without a local interpreter cannot use the helper as written; it should report the missing capability, not imitate the checks or claim a tested result.
 
 The audit is read-only and does not need the OutreachGenie Chrome companion to be running. It does not discover current LinkedIn profile data, verify current connections, or exercise delivery. If the user has no saved data, explain that the demo is available; do not silently import or enrich prospects to make the audit run.

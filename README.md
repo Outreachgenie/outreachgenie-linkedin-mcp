@@ -36,7 +36,7 @@ For a real audit, [open an OutreachGenie workspace](https://app.outreachgenie.ai
 
 The package uses the [Agent Skills format](https://agentskills.io/specification). Install the `skills/outreachgenie-list-audit` folder into a skill directory supported by your host. Current [Codex documentation](https://learn.chatgpt.com/docs/build-skills#where-to-save-skills) lists `~/.agents/skills` for user skills and `.agents/skills` within a repository. Keep the directory name and review an existing installation before replacing it. This is a local skill package, not a published plugin.
 
-Offline Python execution and the packaged fictional fixture are validated. Native host invocation, hosted OAuth and a real-workspace capture for this skill have not been verified. These are separate integration checks required before claiming a named host is supported; they do not prevent using the offline helper. A browser-only host without local Python cannot run this helper as written.
+The offline helper and fictional fixture have been validated. One explicit native Codex CLI 0.160.0 invocation also passed on Linux with Python 3.11.8 in an isolated workspace. This verifies the fictional fixture workflow only; hosted OAuth, real-workspace capture, automatic skill selection, Claude Code and ChatGPT/Claude web execution remain unverified. See the [compatibility evidence](skills/outreachgenie-list-audit/references/setup.md#compatibility-evidence). A browser-only host without local Python cannot run the helper as written.
 
 ## How it differs from scraper-based LinkedIn MCP servers
 

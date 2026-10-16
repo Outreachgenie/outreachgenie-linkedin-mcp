@@ -7,6 +7,8 @@ description: Review saved OutreachGenie prospect lists against a saved outreach 
 
 Find concrete saved-data and template problems before the user considers an outreach campaign. Work from their selected workspace, list IDs and flow ID; preserve their scope. This skill reads data and writes local reports. It does not create or change prospects, lists, flows or campaigns, activate campaigns, send messages, enrich data or execute LinkedIn actions.
 
+For browser reading, open the [official setup guide](https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/blob/main/skills/outreachgenie-list-audit/references/setup.md) or [complete skill instructions](https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/blob/main/skills/outreachgenie-list-audit/SKILL.md). Installed hosts can use the local references below.
+
 ## Start with the available mode
 
 - **Existing snapshot or demo:** run the local helper directly. The supplied fixture is entirely fictional and needs no account.
