@@ -1,0 +1,47 @@
+name: Skill validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate skill (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.10', '3.13']
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Check skill format and archive contents
+        run: python scripts/validate_skill.py
+      - name: Run offline behavior tests
+        run: python skills/outreachgenie-list-audit/scripts/test_audit.py
+      - name: Run synthetic CLI demo
+        shell: bash
+        run: >-
+          python skills/outreachgenie-list-audit/scripts/audit.py
+          --input skills/outreachgenie-list-audit/fixtures/fictional-snapshot.json
+          --output-dir "$RUNNER_TEMP/outreachgenie-audit-demo"
+
+  ci-gate:
+    name: CI Gate
+    if: always()
+    needs: [validate]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every validation job
+        env:
+          VALIDATION_RESULT: ${{ needs.validate.result }}
+        run: test "$VALIDATION_RESULT" = success
