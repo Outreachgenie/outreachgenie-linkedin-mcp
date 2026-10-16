@@ -14,6 +14,15 @@ https://api.outreachgenie.ai/mcp
 
 [OutreachGenie list audit](skills/outreachgenie-list-audit/SKILL.md) checks saved prospect lists against a saved outreach flow. It finds missing personalization values, list metadata gaps, overlong invitation notes/messages and incomplete membership captures. It reads existing data and produces local JSON/Markdown findings; it does not create or activate a campaign.
 
+Install the skill for Codex in your project with the tested [Skills CLI](https://skills.sh/docs/cli) version:
+
+```bash
+DISABLE_TELEMETRY=1 npx skills@1.7.2 add Outreachgenie/outreachgenie-linkedin-mcp \
+  --skill outreachgenie-list-audit --agent codex --copy
+```
+
+Or download the [v0.1.0 skill ZIP](https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/releases/download/list-audit-v0.1.0/outreachgenie-list-audit-0.1.0.zip). Installing the skill files does not connect an OutreachGenie account or grant MCP permissions.
+
 The included demonstration is fictional and needs no account or credentials. From a checkout of this repository, with Python 3.10 or newer:
 
 ```bash
