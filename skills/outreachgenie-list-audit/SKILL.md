@@ -7,12 +7,12 @@ description: Review saved OutreachGenie prospect lists against a saved outreach 
 
 Find concrete saved-data and template problems before the user considers an outreach campaign. Work from their selected workspace, list IDs and flow ID; preserve their scope. This skill reads data and writes local reports. It does not create or change prospects, lists, flows or campaigns, activate campaigns, send messages, enrich data or execute LinkedIn actions.
 
-For browser reading, open the [official setup guide](https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/blob/main/skills/outreachgenie-list-audit/references/setup.md) or [complete skill instructions](https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/blob/main/skills/outreachgenie-list-audit/SKILL.md). Installed hosts can use the local references below.
+For browser reading, open the [official setup guide](https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/blob/main/skills/outreachgenie-list-audit/references/setup.md) or [complete skill instructions](https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/blob/main/skills/outreachgenie-list-audit/SKILL.md). Installed hosts should read the bundled reference paths below locally; the accompanying web links are for browser readers.
 
 ## Start with the available mode
 
 - **Existing snapshot or demo:** run the local helper directly. The supplied fixture is entirely fictional and needs no account.
-- **Connected workspace:** read [setup.md](references/setup.md) for prerequisites and privacy, then [capture.md](references/capture.md) for exact payloads and pagination. An OutreachGenie account, accessible saved lists/flow, a connected MCP host and local Python 3.10+ are required. Browser-only chat hosts may lack the local execution needed for this helper.
+- **Connected workspace:** read `references/setup.md` ([web copy](https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/blob/main/skills/outreachgenie-list-audit/references/setup.md)) for prerequisites and privacy, then `references/capture.md` ([web copy](https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/blob/main/skills/outreachgenie-list-audit/references/capture.md)) for exact payloads and pagination. An OutreachGenie account, accessible saved lists/flow, a connected MCP host and local Python 3.10+ are required. Browser-only chat hosts may lack the local execution needed for this helper.
 
 If the user gives names rather than IDs, the optional read tools `list_prospect_lists` and `list_flows` can find candidates. `get_prospect_lists` is a different tool: it lists memberships for one prospect. Resolve ambiguity before auditing a different workspace or list. Do not invent IDs or silently select the first match.
 
@@ -29,7 +29,7 @@ If the user gives names rather than IDs, the optional read tools `list_prospect_
    The report directory must not exist. The helper performs no network calls. It creates JSON and Markdown reports with owner-only filesystem permissions on POSIX; operating-system ACL behavior elsewhere is unverified. A CLI exit code of 0 means the report was produced, not that the flow is ready.
 4. Read `audit-report.json`, then explain membership coverage, specific template findings and unknowns. Use IDs to locate records, not raw contact details or copied message bodies. Separate list metadata availability from per-prospect saved values. The helper checks all saved supported action nodes, including unreachable nodes; it does not simulate the graph.
 
-Use [checks.md](references/checks.md) to interpret codes and limitations. If pagination or data changed during capture, report the incompleteness. For more than 1,000 selected-list memberships, narrow the requested scope or audit a clearly labelled partial capture; never call it a full-workspace audit.
+Use `references/checks.md` ([web copy](https://github.com/Outreachgenie/outreachgenie-linkedin-mcp/blob/main/skills/outreachgenie-list-audit/references/checks.md)) to interpret codes and limitations. If pagination or data changed during capture, report the incompleteness. For more than 1,000 selected-list memberships, narrow the requested scope or audit a clearly labelled partial capture; never call it a full-workspace audit.
 
 ## Demo and report boundary
 
