@@ -1,8 +1,9 @@
-# LinkedIn MCP server for Claude and ChatGPT — OutreachGenie
+# LinkedIn MCP server for Claude, ChatGPT and Codex — OutreachGenie
 
 Connect Claude, ChatGPT, Claude Code, or Codex to your LinkedIn prospecting
 workspace: look up and import prospects, organize lists, build outreach flows,
-and prepare campaigns from chat. Hosted, OAuth-secured, and free.
+and prepare campaigns from chat. Hosted and OAuth-secured, with MCP access
+included on the Free plan.
 
 ```
 https://api.outreachgenie.ai/mcp
@@ -41,11 +42,18 @@ The offline helper and fictional fixture have been validated. One explicit nativ
 ## How it differs from scraper-based LinkedIn MCP servers
 
 Many open-source LinkedIn MCP servers sign in to LinkedIn with your session and
-read pages on demand. This one doesn't touch LinkedIn at all. It gives the agent
-an [OutreachGenie](https://www.outreachgenie.ai) workspace with lists, notes,
+read pages on demand. This MCP server does not browse LinkedIn directly. It gives
+the agent an [OutreachGenie](https://www.outreachgenie.ai) workspace with lists, notes,
 flows, and campaign state. LinkedIn-side steps (invitations, messages, visits)
 run later through the OutreachGenie Chrome companion in your own browser, at
 the pace your workspace limits allow.
+
+Importing Sales Navigator search results is a separate, user-initiated Chrome
+companion workflow in your browser. Save the people to a workspace list first;
+MCP can then work with those saved records. The MCP server does not browse Sales
+Navigator or extract its search results. See the [Sales Navigator import and CSV
+export guide](https://www.outreachgenie.ai/blog/export-sales-navigator-leads-to-csv)
+for the browser steps, import limits and separate Sales Navigator subscription.
 
 ## Setup
 
@@ -99,6 +107,13 @@ Leave `campaigns.activate` out if you want the agent to prepare campaigns but ne
 - "Use the Partner outreach flow with the Partner leads list. Summarize the launch plan and wait for my approval before creating the campaign."
 
 ## Limits and policy
+
+MCP access has no separate API or MCP charge. Free includes 80 outreach actions
+per week and 500 new prospects per week from LinkedIn search, Sales Navigator
+and post engagement. Pro costs $15/month or $150/year (USD) and removes those
+weekly product quotas. LinkedIn's own restrictions and workspace execution
+controls still apply. See [current pricing and plan allowances](https://www.outreachgenie.ai/pricing)
+for the full breakdown.
 
 LinkedIn says third-party software that automates activity on its website is
 not allowed, and accounts may be restricted. An AI client doesn't change that.
